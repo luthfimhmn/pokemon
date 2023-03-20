@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addMyPokemons, releasePokemon } from "../store/actions/pokemonAction";
+import { addMyPokemons } from "../store/actions/pokemonAction";
 
 const PokemonInfo = ({ data }) => {
   const myPokemons = useSelector((state) => state.pokemon.data);
@@ -9,11 +9,6 @@ const PokemonInfo = ({ data }) => {
   function addToMyPokemonList(e) {
     e.preventDefault();
     dispatch(addMyPokemons(data));
-  }
-
-  function releaseMyPokemon(e) {
-    e.preventDefault();
-    dispatch(releasePokemon(data));
   }
 
   return (
@@ -49,7 +44,6 @@ const PokemonInfo = ({ data }) => {
           </div>
           <div className="btn-group-new">
             <button onClick={(e) => addToMyPokemonList(e)}>Catch</button>
-            <button onClick={(e) => releaseMyPokemon(e)}>Release</button>
           </div>
         </>
       )}
